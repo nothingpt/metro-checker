@@ -1,33 +1,258 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background: linear-gradient(125.37deg, #49FFD3 0.51%, rgba(251, 255, 39, 0) 100.62%);
+}
+
+.global-container {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  height: 50vh;
+  width: 70%;
+  background: #EAFFE9;
+  box-shadow: 0px 8px 8px rgba(77, 255, 126, 0.25);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.line-container {
+  margin-top: 10px;
+  width: 90%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
+
+.linha-azul {
+  font-size: 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  color: #538BEB;
+}
+
+.line-blue::after {
+  display: block;
+  content: '';
+  width: 100%;
+  border-top: 2px solid #538BEB;
+  margin-left: 3px;
+  margin-top: -6px;
+}
+
+.linha-verde {
+  font-size: 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  color: #03A900;
+}
+
+.line-green::after {
+  display: block;
+  content: '';
+  width: 100%;
+  border-top: 2px solid #03A900;
+  margin-left: 3px;
+  margin-top: -6px;
+}
+
+.linha-amarela {
+  font-size: 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  color: #B0BF00;
+}
+
+.line-yellow::after {
+  display: block;
+  content: '';
+  width: 100%;
+  border-top: 2px solid #B0BF00;
+  margin-left: 3px;
+  margin-top: -6px;
+}
+
+.station {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 5px;
+}
+
+.upcoming-trains {
+  margin-top: 3px;
+  margin-left: 15px;
+}
+
+.svg{
+  align-self: center;
+  justify-self: center;
+  width: 30%;
+  height: 30%;
+}
+
+.loader-green {
+  fill: #03A900;
+}
+
+.loader-yellow {
+  fill: #B0BF00;
+}
+
+.loader-blue {
+  fill: #538BEB;
 }
