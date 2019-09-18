@@ -14,8 +14,8 @@ You will also see any lint errors in the console.
 ## Purpose
 
  It was designed to test the new Metro de Lisboa API and to further my knowledge in React.js and improving my frontend skills too.
- **Note: it's not optmized for mobile yet, but it's on the todo list.
+ ** Note: it's not optmized for mobile yet, but it's on the todo list.
 
-##What it does
+## What it does
 For the `Campo Grande` and `Avenida` stations, it will retrieve the available arrivals and departures. 
-**Note: It shows the upcoming 3 trains per API limit.
+** Note: It shows the upcoming 3 trains per API limit.
