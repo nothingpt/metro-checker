@@ -39,59 +39,60 @@ function App() {
         const h = entry.hora.substr(8, 2);
         const mn = entry.hora.substr(10, 2);
         const s = entry.hora.substr(12, 2);
-        var hora = `${a}-${m}-${d}T${h}:${mn}:${s}`;
+        let hora = `${a}-${m}-${d}T${h}:${mn}:${s}`;
+        let tempo1, tempo2, tempo3;
+
+        if ( !entry.tempoChegada1 || entry.tempoChegada1 == '0' || isNaN(entry.tempoChegada1)) {
+          tempo1 = '--:--:--';
+        } else {
+          tempo1 = moment(hora)
+          .add(entry.tempoChegada1, "s")
+          .format("HH:mm:ss");
+        }
+
+        if ( !entry.tempoChegada2 || entry.tempoChegada2 == '0' || isNaN(entry.tempoChegada2)) {
+          tempo2 = '--:--:--';
+        } else {
+          tempo2 = moment(hora)
+          .add(entry.tempoChegada2, "s")
+          .format("HH:mm:ss");
+        }
+
+        if ( !entry.tempoChegada3 || entry.tempoChegada3 == '0' || isNaN(entry.tempoChegada3)) {
+          tempo3 = '--:--:--';
+        } else {
+          tempo3 = moment(hora)
+          .add(entry.tempoChegada3, "s")
+          .format("HH:mm:ss");
+        }
 
         switch (entry.destino) {
           case "54": // Cais do Sodre
             updateCaisSodre({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           case "50": // Telheiras
             updateTelheiras({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           case "48": // Rato
             updateRato({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           case "43": // Odivelas
             updateOdivelas({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           default:
@@ -116,32 +117,43 @@ function App() {
         const mn = entry.hora.substr(10, 2);
         const s = entry.hora.substr(12, 2);
         var hora = `${a}-${m}-${d}T${h}:${mn}:${s}`;
+        let tempo1, tempo2, tempo3;
+
+        if ( !entry.tempoChegada1 || entry.tempoChegada1 == '0' || isNaN(entry.tempoChegada1)) {
+          tempo1 = '--:--:--';
+        } else {
+          tempo1 = moment(hora)
+          .add(entry.tempoChegada1, "s")
+          .format("HH:mm:ss");
+        }
+        if ( !entry.tempoChegada2 || entry.tempoChegada2 == '0' || isNaN(entry.tempoChegada2)) {
+          tempo2 = '--:--:--';
+        } else {
+          tempo2 = moment(hora)
+          .add(entry.tempoChegada2, "s")
+          .format("HH:mm:ss");
+        }
+        if ( !entry.tempoChegada3 || entry.tempoChegada3 == '0' || isNaN(entry.tempoChegada3)) {
+          tempo3 = '--:--:--';
+        } else {
+          tempo3 = moment(hora)
+          .add(entry.tempoChegada3, "s")
+          .format("HH:mm:ss");
+        }
 
         switch (entry.destino) {
           case "42": // Santa Apolonia
             updateStApolonia({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           case "33": // Reboleira
             updateReboleira({
-              tempoChegada1: moment(hora)
-                .add(entry.tempoChegada1, "s")
-                .format("HH:mm:ss"),
-              tempoChegada2: moment(hora)
-                .add(entry.tempoChegada2, "s")
-                .format("HH:mm:ss"),
-              tempoChegada3: moment(hora)
-                .add(entry.tempoChegada3, "s")
-                .format("HH:mm:ss")
+              tempoChegada1: tempo1,
+              tempoChegada2: tempo2,
+              tempoChegada3: tempo3
             });
             break;
           default:
