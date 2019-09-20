@@ -145,7 +145,7 @@ function App() {
             });
             break;
           default:
-            break;
+            break; 
         }
       });
       updateIsLoading(false);

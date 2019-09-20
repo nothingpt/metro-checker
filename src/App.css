@@ -153,13 +153,13 @@ body {
 }
 
 .container {
-  height: 50vh;
+  height: 80%;
   width: 70%;
   background: #EAFFE9;
   box-shadow: 0px 8px 8px rgba(77, 255, 126, 0.25);
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 5px;
   justify-items: center;
   align-items: center;
@@ -175,7 +175,7 @@ body {
 
 
 .linha-azul {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 700;
   color: #538BEB;
@@ -187,11 +187,11 @@ body {
   width: 100%;
   border-top: 2px solid #538BEB;
   margin-left: 3px;
-  margin-top: -6px;
+  margin-top: -5px;
 }
 
 .linha-verde {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 700;
   color: #03A900;
@@ -203,11 +203,11 @@ body {
   width: 100%;
   border-top: 2px solid #03A900;
   margin-left: 3px;
-  margin-top: -6px;
+  margin-top: -5px;
 }
 
 .linha-amarela {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 700;
   color: #B0BF00;
@@ -219,7 +219,7 @@ body {
   width: 100%;
   border-top: 2px solid #B0BF00;
   margin-left: 3px;
-  margin-top: -6px;
+  margin-top: -5px;
 }
 
 .station {
@@ -255,4 +255,29 @@ body {
 
 .loader-blue {
   fill: #538BEB;
+}
+
+@media (min-width: 750px) {
+  .container {
+    height: 50vh;
+    width: 70%;
+    background: #EAFFE9;
+    box-shadow: 0px 8px 8px rgba(77, 255, 126, 0.25);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .linha-amarela,
+  .linha-azul,
+  .linha-verde {
+    font-size: 1.5rem;
+  }
+
+  .station {
+    font-size: 1rem;
+  }
 }
