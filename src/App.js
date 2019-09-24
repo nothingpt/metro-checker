@@ -18,6 +18,7 @@ import dotenv from "dotenv";
 function App(props) {
   var id = 0;
   const [code, updateCode] = useState("CG");
+  const [fundo, updateFundo] = useState('train');
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
 
@@ -104,7 +105,20 @@ function App(props) {
     updateCode(code);
     updateComboios([]);
     getData(code);
+    // change background according to the line
   };
+
+  const handleLoad = (fundo) => {
+    if (fundo === 'Verde') {
+      updateFundo('train-verde');
+    } else if (fundo === 'Azul') {
+      updateFundo('train-azul');
+    } else if (fundo === 'Amarela') {
+      updateFundo('train-amarela');
+    } else if (fundo === 'Vermelha') {
+      updateFundo('train-vermelha');
+    }
+  }
 
   return (
     <div className="container">
@@ -124,12 +138,12 @@ function App(props) {
           </div>
         ) : (
           comboios.map(comboio => (
-            <div key={comboio.id} className='train'>
+            <div key={comboio.id} className={'train-' + comboio.linha}>
               {comboio.destino ? <Station trains={comboio} /> : ""}
             </div>
           ))
         )}
-      </div>
+      </div>      
     </div>
   );
 }
