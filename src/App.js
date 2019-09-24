@@ -108,18 +108,6 @@ function App(props) {
     // change background according to the line
   };
 
-  const handleLoad = (fundo) => {
-    if (fundo === 'Verde') {
-      updateFundo('train-verde');
-    } else if (fundo === 'Azul') {
-      updateFundo('train-azul');
-    } else if (fundo === 'Amarela') {
-      updateFundo('train-amarela');
-    } else if (fundo === 'Vermelha') {
-      updateFundo('train-vermelha');
-    }
-  }
-
   return (
     <div className="container">
       <div className='search-container'>

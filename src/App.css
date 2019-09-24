@@ -143,67 +143,29 @@ table {
 }
 
 body {
+  background-repeat: no-repeat, repeat;
+  display: grid;
+  align-content: center;
   height: 100vh;
   background: linear-gradient(125.37deg, #49FFD3 0.51%, rgba(251, 255, 39, 0) 100.62%);
   font-size: 1.5rem;
   font-family: 'Nunito Sans', sans-serif;
+  margin-top: 25px;
 }
 
 .container {
-  height: 80%;
+  margin: 0 auto;
+  height: 100%;
   width: 70%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 8px 8px rgba(77, 255, 126, 0.25);
+  border-radius: 10px;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   grid-gap: 5px;
   justify-items: center;
-  align-items: center;
-}
-
-.line-container {
-  margin-top: 10px;
-  width: 90%;
-  height: 80%;
-  display: grid;
-  grid-template-rows: auto auto auto;
-}
-
-.linha-azul {
-  font-size: 1.5rem;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700;
-  color: #538BEB;
-}
-
-.line-blue::after {
-  display: block;
-  content: '';
-  width: 100%;
-  border-top: 2px solid #538BEB;
-  margin-left: 3px;
-  margin-top: -5px;
-}
-
-.linha-verde {
-  font-size: 1.5rem;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700;
-  color: #03A900;
-}
-
-.line-green::after {
-  display: block;
-  content: '';
-  width: 100%;
-  border-top: 2px solid #03A900;
-  margin-left: 3px;
-  margin-top: -5px;
-}
-
-.linha-amarela {
-  font-size: 1.5rem;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700;
-  color: #B0BF00;
+  align-content: center;
 }
 
 .station {
@@ -281,20 +243,33 @@ body {
   border-radius: 5px;
   padding-bottom: 5px;
 }
+
 .train-Verde {
   background: var(--verde);
   border-radius: 5px;
   padding-bottom: 5px;
 }
+
 .train-Vermelha {
   background: var(--vermelha);
   border-radius: 5px;
   padding-bottom: 5px;
 }
+
 .train-Amarela {
   background: var(--amarela);
   border-radius: 5px;
   padding-bottom: 5px;
+}
+
+.content {
+  width: 90%;
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  grid-gap: 5px;
+  align-self: start;
 }
 
 @media (min-width: 750px) {
@@ -316,7 +291,7 @@ body {
     grid-template-rows: auto 1fr;
     grid-gap: 5px;
     justify-items: center;
-    align-content: center;    
+    align-content: center;
   }
 
   .content {
