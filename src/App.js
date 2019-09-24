@@ -17,13 +17,13 @@ import dotenv from "dotenv";
 
 function App(props) {
   var id = 0;
-  const [code, updateCode] = useState('CG');
+  const [code, updateCode] = useState("CG");
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
 
   dotenv.config();
 
-  async function getData(code = 'CG') {
+  async function getData(code = "CG") {
     updateIsLoading(true);
 
     // load the upcoming trains for station CG (Campo Grande)
@@ -92,37 +92,44 @@ function App(props) {
       return entry;
     });
 
-    updateComboios(aComboios)
+    updateComboios(aComboios);
   }
 
   useEffect(() => {
     getData();
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const code = e.target.value;
     updateCode(code);
     updateComboios([]);
     getData(code);
-  }
+  };
 
   return (
-    <div>
-      <select value={code} onChange={ handleChange }>
-        <option value=""></option>
-        {STATIONS.map(station => (
-          <option value={station.code} key={station.code}>{station.name}</option>
-        ))}
-      </select>
-      {isLoading ? (
-        <div className="svg">
-          <SVGLoaders.ThreeDots className="loader-blue" />
-        </div>
-      ) : (
-        comboios.map(comboio => (
-          <div key={comboio.id}>{comboio.destino ? <Station trains={comboio} /> : ""}</div>
-        ))
-      )}
+    <div className="container">
+      <div className='search-container'>
+        <select value={code} onChange={handleChange}>
+          {STATIONS.map(station => (
+            <option value={station.code} key={station.code}>
+              {station.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className='content'>
+        {isLoading ? (
+          <div className="svg">
+            <SVGLoaders.ThreeDots className="loader-blue" />
+          </div>
+        ) : (
+          comboios.map(comboio => (
+            <div key={comboio.id} className='train'>
+              {comboio.destino ? <Station trains={comboio} /> : ""}
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
