@@ -17,22 +17,37 @@ import dotenv from "dotenv";
 
 function App(props) {
   var id = 0;
-  const [code, updateCode] = useState("CG");
-  const [fundo, updateFundo] = useState("train");
+  const [code, updateCode] = useState(localStorage.getItem("code") || "CG");
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
 
   dotenv.config();
 
-  async function getData(code = "CG") {
-    updateCode(code);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect( () => {
+    localStorage.setItem('code', code);
+    getData();
+  }, code);
+
+  const handleChange = e => {
+    const codEstacao = e.target.value;
+    updateCode(codEstacao);
+    updateComboios([]);
+  };
+
+  const handleClick = () => {
+    getData(code);
+  };
+
+  async function getData() {
+    let codeEstacao = localStorage.getItem('code') || 'CG';
     updateIsLoading(true);
 
-    // load the upcoming trains for station CG (Campo Grande)
-    // Soon, it will load this or the station stored in local storage
-
     const res = await axios.get(
-      `https://api.metrolisboa.pt:8243/estadoServicoML/1.0.0/tempoEspera/Estacao/${code}`,
+      `https://api.metrolisboa.pt:8243/estadoServicoML/1.0.0/tempoEspera/Estacao/${codeEstacao}`,
       {
         headers: {
           Authorization: "Bearer " + process.env.REACT_APP_API_KEY
@@ -97,22 +112,6 @@ function App(props) {
     updateComboios(aComboios);
   }
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const handleChange = e => {
-    const code = e.target.value;
-    updateCode(code);
-    updateComboios([]);
-    getData(code);
-    // change background according to the line
-  };
-
-  const handleClick = () => {
-    getData(code);
-  };
-
   return (
     <div>
       <div className="container">
@@ -133,7 +132,7 @@ function App(props) {
           ) : (
             comboios.map(comboio => (
               <div key={comboio.id} className={"train-" + comboio.linha}>
-                {comboio.destino ? <Station trains={comboio} /> : ""}
+                {comboio.destino && <Station trains={comboio} />}
               </div>
             ))
           )}
@@ -143,7 +142,7 @@ function App(props) {
         </div>
       </div>
       <div className="me">
-        <span>nsantos [dot] pessoal [at] gmail [dot] com</span>
+        <span>nsantos [dot] [at] gmail [dot] com</span>
       </div>
     </div>
   );
