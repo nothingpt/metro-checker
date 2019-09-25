@@ -129,7 +129,7 @@ function getLinha(orig, dest) {
     case 'MP': // Marques de Pombal
         if ( dest === '42' || dest === '33') {
           linha = 'Azul';
-        } else if ( dest === '45' || dest === '48') {
+        } else if ( dest === '43' || dest === '48'  || dest === '45') {
           linha = 'Amarela';
         }
       break;
