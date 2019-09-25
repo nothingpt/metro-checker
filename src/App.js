@@ -143,7 +143,7 @@ function App(props) {
         </div>
       </div>
       <div className="me">
-        <span>nuno santos [at] gmail [dot] com</span>
+        <span>nsantos [dot] pessoal [at] gmail [dot] com</span>
       </div>
     </div>
   );
