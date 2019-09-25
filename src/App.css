@@ -285,6 +285,14 @@ body {
   font-size: 0.7rem;
 }
 
+.me {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  color: rgb(61, 145, 255);
+  font-size: 1rem;
+}
+
 @media (min-width: 750px) {
   body {
     background-repeat: no-repeat, repeat;

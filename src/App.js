@@ -18,7 +18,7 @@ import dotenv from "dotenv";
 function App(props) {
   var id = 0;
   const [code, updateCode] = useState("CG");
-  const [fundo, updateFundo] = useState('train');
+  const [fundo, updateFundo] = useState("train");
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
 
@@ -111,35 +111,40 @@ function App(props) {
 
   const handleClick = () => {
     getData(code);
-  }
+  };
 
   return (
-    <div className="container">
-      <div className='search-container'>
-        <select value={code} onChange={handleChange}>
-          {STATIONS.map(station => (
-            <option value={station.code} key={station.code}>
-              {station.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className='content' onClick={handleClick}>
-        {isLoading ? (
-          <div className="svg">
-            <SVGLoaders.ThreeDots className="loader-blue" />
-          </div>
-        ) : (
-          comboios.map(comboio => (
-            <div key={comboio.id} className={'train-' + comboio.linha}>
-              {comboio.destino ? <Station trains={comboio} /> : ""}
+    <div>
+      <div className="container">
+        <div className="search-container">
+          <select value={code} onChange={handleChange}>
+            {STATIONS.map(station => (
+              <option value={station.code} key={station.code}>
+                {station.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="content" onClick={handleClick}>
+          {isLoading ? (
+            <div className="svg">
+              <SVGLoaders.ThreeDots className="loader-blue" />
             </div>
-          ))
-        )}
+          ) : (
+            comboios.map(comboio => (
+              <div key={comboio.id} className={"train-" + comboio.linha}>
+                {comboio.destino ? <Station trains={comboio} /> : ""}
+              </div>
+            ))
+          )}
+        </div>
+        <div className="footer">
+          <span>para actualizar clicar na zona do horários</span>
+        </div>
       </div>
-    <div className='footer'>
-      <span>para actualizar clicar na zona do horários</span>
-    </div>
+      <div className="me">
+        <span>nuno santos [at] gmail [dot] com</span>
+      </div>
     </div>
   );
 }
