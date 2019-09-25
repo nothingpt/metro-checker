@@ -170,7 +170,7 @@ body {
 .station {
   font-size: 1rem;
   font-weight: 400;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 10px;
   display: grid;
   grid-template-columns: 1fr;
@@ -179,7 +179,7 @@ body {
 }
 
 .upcoming-trains {
-  margin-top: 3px;
+  /* margin-top: 3px; */
   margin-left: 15px;
 }
 
@@ -233,10 +233,6 @@ body {
   color: rgb(17, 134, 66);
 }
 
-.station {
-  font-size: 1rem;
-}
-
 .train-Azul {
   background: var(--azul);
   border-radius: 5px;
@@ -269,7 +265,24 @@ body {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   grid-gap: 5px;
+  align-content: start;
+}
+
+.upcoming-trains-title {
+  position: relative;
+  font-size: 1.5rem;
   align-self: start;
+}
+
+.upcoming-trains-title::after {
+  display: block;
+  content: "";
+  border: 1px solid white;
+  margin-left: -10px;
+}
+
+.footer span {
+  font-size: 0.7rem;
 }
 
 @media (min-width: 750px) {

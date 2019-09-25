@@ -25,6 +25,7 @@ function App(props) {
   dotenv.config();
 
   async function getData(code = "CG") {
+    updateCode(code);
     updateIsLoading(true);
 
     // load the upcoming trains for station CG (Campo Grande)
@@ -108,6 +109,10 @@ function App(props) {
     // change background according to the line
   };
 
+  const handleClick = () => {
+    getData(code);
+  }
+
   return (
     <div className="container">
       <div className='search-container'>
@@ -119,7 +124,7 @@ function App(props) {
           ))}
         </select>
       </div>
-      <div className='content'>
+      <div className='content' onClick={handleClick}>
         {isLoading ? (
           <div className="svg">
             <SVGLoaders.ThreeDots className="loader-blue" />
@@ -131,7 +136,10 @@ function App(props) {
             </div>
           ))
         )}
-      </div>      
+      </div>
+    <div className='footer'>
+      <span>para actualizar clicar na zona do horários</span>
+    </div>
     </div>
   );
 }
