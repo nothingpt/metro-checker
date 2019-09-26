@@ -270,7 +270,7 @@ body {
 
 .upcoming-trains-title {
   position: relative;
-  font-size: 1.5rem;
+  font-size: 5vw;
   align-self: start;
 }
 
@@ -322,6 +322,12 @@ body {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     grid-gap: 5px;
+    align-self: start;
+  }
+
+  .upcoming-trains-title {
+    position: relative;
+    font-size: 1.5rem;
     align-self: start;
   }
 }
