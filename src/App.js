@@ -17,6 +17,10 @@ import dotenv from "dotenv";
 
 function App(props) {
   var id = 0;
+  const [amarela, updateAmarela] = useState('');
+  const [azul, updateAzul] = useState('');
+  const [verde, updateVerde] = useState('');
+  const [vermelha, updateVermelha] = useState('');
   const [code, updateCode] = useState(localStorage.getItem("code") || "CG");
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
@@ -25,6 +29,10 @@ function App(props) {
 
   useEffect(() => {
     getData();
+  }, []);
+
+  useEffect( () => {
+    getEstadoLinhas();
   }, []);
 
   useEffect( () => {
@@ -41,6 +49,22 @@ function App(props) {
   const handleClick = () => {
     getData(code);
   };
+
+  async function getEstadoLinhas() {
+    const res = await axios.get(
+      `https://api.metrolisboa.pt:8243/estadoServicoML/1.0.0/estadoLinha/todos`,
+      {
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_API_KEY
+        }
+      }
+    );
+    // amarela: " Ok", azul: " Ok", verde: " Ok", vermelha: " Ok"
+    updateAmarela(res.data.resposta.amarela);
+    updateAzul(res.data.resposta.azul);
+    updateVerde(res.data.resposta.verde);
+    updateVermelha(res.data.resposta.vermelha);
+  }
 
   async function getData() {
     let codeEstacao = localStorage.getItem('code') || 'CG';
@@ -114,6 +138,12 @@ function App(props) {
 
   return (
     <div>
+      <div className="header">
+        <div className="linha-amarela">{amarela.toUpperCase()}</div>
+        <div className="linha-azul">{azul.toUpperCase()}</div>
+        <div className="linha-verde">{verde.toUpperCase()}</div>
+        <div className="linha-vermelha">{vermelha.toUpperCase()}</div>
+      </div>
       <div className="container">
         <div className="search-container">
           <select value={code} onChange={handleChange}>
