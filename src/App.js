@@ -51,35 +51,35 @@ function App(props) {
   };
 
   async function getEstadoLinhas() {
-    const res = await axios.get(
+    const res = await fetch(
       `https://api.metrolisboa.pt:8243/estadoServicoML/1.0.0/estadoLinha/todos`,
       {
-        headers: {
+        headers: new Headers({
           Authorization: "Bearer " + process.env.REACT_APP_API_KEY
-        }
+        })
       }
-    );
+    ).then(r => r.json());
     // amarela: " Ok", azul: " Ok", verde: " Ok", vermelha: " Ok"
-    updateAmarela(res.data.resposta.amarela);
-    updateAzul(res.data.resposta.azul);
-    updateVerde(res.data.resposta.verde);
-    updateVermelha(res.data.resposta.vermelha);
+    updateAmarela(res.resposta.amarela);
+    updateAzul(res.resposta.azul);
+    updateVerde(res.resposta.verde);
+    updateVermelha(res.resposta.vermelha);
   }
 
   async function getData() {
     let codeEstacao = localStorage.getItem('code') || 'CG';
     updateIsLoading(true);
 
-    const res = await axios.get(
+    const res = await fetch(
       `https://api.metrolisboa.pt:8243/estadoServicoML/1.0.0/tempoEspera/Estacao/${codeEstacao}`,
       {
-        headers: {
+        headers: new Headers({
           Authorization: "Bearer " + process.env.REACT_APP_API_KEY
-        }
+        })
       }
-    );
+    ).then(r => r.json());
 
-    const aComboios = res.data["resposta"].map(entry => {
+    const aComboios = res["resposta"].map(entry => {
       const a = entry.hora.substr(0, 4);
       const m = entry.hora.substr(4, 2);
       const d = entry.hora.substr(6, 2);
