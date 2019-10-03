@@ -59,7 +59,7 @@ function App(props) {
         })
       }
     ).then(r => r.json());
-    // amarela: " Ok", azul: " Ok", verde: " Ok", vermelha: " Ok"
+    
     updateAmarela(res.resposta.amarela);
     updateAzul(res.resposta.azul);
     updateVerde(res.resposta.verde);
