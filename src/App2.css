@@ -89,13 +89,13 @@ body {
   }
 
   .content {
-    grid-column: 1;
     height: calc(100vh - 70px);
     width: 100%;
     background-color: var(--cinzentoEscuro);
     display: grid;
     grid-template-rows: auto 1fr auto;
     box-shadow: 2px 15px 30px 0 rgba(0, 0, 0, .5);
+    grid-column: 1;
   }
 
   .estado {
