@@ -3,7 +3,7 @@ import React from "react";
 const Station = props => {
   return (
     <div className="station" {...props}>
-      <div className="upcoming-trains-title">{props.trains.destino}</div>
+      <div className={"upcoming-trains-title__" + props.trains.linha}>{props.trains.destino}</div>
       <div className="upcoming-trains">
         <ul>
           <li key={props.trains.tempoChegada1}>{props.trains.tempoChegada1}</li>

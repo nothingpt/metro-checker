@@ -3,10 +3,12 @@ import * as moment from "moment";
 
 import * as SVGLoaders from "svg-loaders-react";
 
-import "./App.css";
+import "./App2.css";
 import "./reset.css";
 
 import Station from "./Station";
+import Linha from "./Linha";
+
 import {
   STATIONS,
   getLinha,
@@ -16,12 +18,12 @@ import {
 
 import dotenv from "dotenv";
 
-function App(props) {
+function App2(props) {
   var id = 0;
-  const [amarela, updateAmarela] = useState('');
-  const [azul, updateAzul] = useState('');
-  const [verde, updateVerde] = useState('');
-  const [vermelha, updateVermelha] = useState('');
+  const [amarela, updateAmarela] = useState("");
+  const [azul, updateAzul] = useState("");
+  const [verde, updateVerde] = useState("");
+  const [vermelha, updateVermelha] = useState("");
   const [code, updateCode] = useState(localStorage.getItem("code") || "CG");
   const [comboios, updateComboios] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
@@ -30,14 +32,14 @@ function App(props) {
 
   useEffect(() => {
     getData();
-  }, []); 
+  }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     getEstadoLinhas();
   }, []);
 
-  useEffect( () => {
-    localStorage.setItem('code', code);
+  useEffect(() => {
+    localStorage.setItem("code", code);
     getData();
   }, code);
 
@@ -48,6 +50,7 @@ function App(props) {
   };
 
   const handleClick = () => {
+    getEstadoLinhas();
     getData(code);
   };
 
@@ -60,7 +63,7 @@ function App(props) {
         })
       }
     ).then(r => r.json());
-    
+
     updateAmarela(res.resposta.amarela);
     updateAzul(res.resposta.azul);
     updateVerde(res.resposta.verde);
@@ -68,7 +71,7 @@ function App(props) {
   }
 
   async function getData() {
-    let codeEstacao = localStorage.getItem('code') || 'CG';
+    let codeEstacao = localStorage.getItem("code") || "CG";
     updateIsLoading(true);
 
     const res = await fetch(
@@ -138,15 +141,23 @@ function App(props) {
   }
 
   return (
-    <div>
+    <div className="container">
       <div className="header">
-        <div className="linha-amarela">{amarela.toUpperCase()}</div>
-        <div className="linha-azul">{azul.toUpperCase()}</div>
-        <div className="linha-verde">{verde.toUpperCase()}</div>
-        <div className="linha-vermelha">{vermelha.toUpperCase()}</div>
+        <div>
+          <Linha nome={"amarela"} estado={amarela} />
+        </div>
+        <div>
+          <Linha nome={"azul"} estado={azul} />
+        </div>
+        <div>
+          <Linha nome={"verde"} estado={verde} />
+        </div>
+        <div>
+          <Linha nome={"vermelha"} estado={vermelha} />
+        </div>
       </div>
-      <div className="container">
-        <div className="search-container">
+      <div className="content" onClick={handleClick}>
+        <div className="select__estacao">
           <select value={code} onChange={handleChange}>
             {STATIONS.map(station => (
               <option value={station.code} key={station.code}>
@@ -155,7 +166,7 @@ function App(props) {
             ))}
           </select>
         </div>
-        <div className="content" onClick={handleClick}>
+        <div className="upcoming_trains__container">
           {isLoading ? (
             <div className="svg">
               <SVGLoaders.ThreeDots className="loader-blue" />
@@ -169,14 +180,11 @@ function App(props) {
           )}
         </div>
         <div className="footer">
-          <span>para actualizar clicar na zona do horários</span>
+          <div>para actualizar carregar nos horários</div>
         </div>
-      </div>
-      <div className="me">
-        <span>nsantos [dot] pessoal [at] gmail [dot] com</span>
       </div>
     </div>
   );
 }
 
-export default App;
+export default App2;

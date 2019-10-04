@@ -1,0 +1,268 @@
+:root {
+  --azul: rgb(138, 178, 248);
+  --verde: rgb(170, 252, 166);
+  --amarela: rgb(235, 252, 52);
+  --vermelha: #f57f7f;
+  --cinzentoClaro: #EEEEEE;
+  --cinzentoEscuro: #212121;
+}
+
+body {
+  /* background-image: url('./wave.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover; */
+  background: var(--cinzentoEscuro);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+
+@media (min-width: 720px) {
+  .container {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr 600px 1fr;
+  }
+
+  .header {
+    margin-top: 5px;
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+
+  .bola_amarela,
+  .bola_azul,
+  .bola_verde,
+  .bola_vermelha {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #FFF, 0px 0px 5px #FFF, 0px 0px 5px #FFF;
+    align-self: center;
+    padding-top: 2px;
+  }
+
+  .bola_amarela {
+    background: var(--amarela);
+  }
+
+  .bola_azul {
+    background: var(--azul);
+  }
+
+  .bola_verde {
+    background: var(--verde);
+  }
+
+  .bola_vermelha {
+    background: var(--vermelha);
+  }
+
+  .estado__container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+  }
+
+  .cor_amarela,
+  .cor_azul,
+  .cor_verde,
+  .cor_vermelha {
+    width: 100%;
+    height: 5px;
+    /* transform: translateY(-70%); */
+    animation: animacao-linha 3s ease forwards;
+  }
+
+  .cor_amarela {
+    background: var(--amarela);
+    box-shadow: 0px 20px 50px var(--amarela), -20px 0px 50px var(--amarela), 20px 0px 50px var(--amarela), 0px 5px 10px var(--amarela);
+  }
+
+  .cor_azul {
+    background: var(--azul);
+    box-shadow: 0px 20px 50px var(--azul), -20px 0px 50px var(--azul), 20px 0px 50px var(--azul), 0px 5px 10px var(--azul);
+  }
+
+  .cor_verde {
+    background: var(--verde);
+    box-shadow: 0px 20px 50px var(--verde), -20px 0px 50px var(--verde), 20px 0px 50px var(--verde), 0px 5px 10px var(--verde);
+  }
+
+  .cor_vermelha {
+    background: var(--vermelha);
+    box-shadow: 0px 20px 50px var(--vermelha), -20px 0px 50px var(--vermelha), 20px 0px 50px var(--vermelha), 0px 5px 10px var(--vermelha);
+  }
+
+  .content {
+    height: calc(100vh - 70px);
+    width: 100%;
+    background-color: var(--cinzentoEscuro);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-column: 2;
+    box-shadow: 2px 15px 30px 0 rgba(0, 0, 0, .5);
+  }
+
+  .estado {
+    width: 100%;
+    color: var(--cinzentoClaro);
+    font-size: 0.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    justify-self: center;
+    animation: animacao-estado 5s ease forwards;
+  }
+
+  .select__estacao {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+  }
+
+  .select__estacao select {
+    outline: 0;
+    border: 0;
+    width: 95%;
+    max-width: 95%;
+    padding: .6em 1.4em .5em .8em;
+    font-size: 1rem;
+    background-color: var(--cinzentoEscuro);
+    color: var(--cinzentoClaro);
+    border: none;
+    box-shadow: 2px 15px 30px 0 rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .select__estacao select>option {
+    outline: 0;
+    border: 0;
+    margin: 3px;
+    padding: 6px 8px;
+    color: var(--cinzentoClaro);
+    background-color: var(--cinzentoEscuro);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .select__estacao select>option::after {
+    content: "";
+    width: 100%;
+    color: white;
+    border-bottom: 5px solid yellow;
+  }
+
+  .upcoming_trains__container {
+    margin-top: 15px;
+    width: 95%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    grid-gap: 5px;
+  }
+
+  .upcoming-trains-title__Amarela,
+  .upcoming-trains-title__Azul,
+  .upcoming-trains-title__Verde,
+  .upcoming-trains-title__Vermelha {
+    font-weight: 500;
+  }
+
+  .upcoming-trains-title__Amarela {
+    color: var(--amarela);
+  }
+
+  .upcoming-trains-title__Azul {
+    color: var(--azul);
+  }
+
+  .upcoming-trains-title__Verde {
+    color: var(--verde);
+  }
+
+  .upcoming-trains-title__Vermelha {
+    color: var(--vermelha);
+  }
+
+  .upcoming-trains-title__Amarela::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--amarela);
+    padding-top: 2px;
+  }
+
+  .upcoming-trains-title__Azul::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--azul);
+    padding-top: 2px;
+  }
+
+  .upcoming-trains-title__Verde::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--verde);
+    padding-top: 2px;
+  }
+
+  .upcoming-trains-title__Vermelha::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--vermelha);
+    padding-top: 2px;
+  }
+
+  .upcoming-trains {
+    font-weight: 300;
+    padding-top: 5px;
+    justify-self: end;
+    color: var(--cinzentoClaro);
+  }
+
+  .station {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+  }
+
+  .footer {
+    justify-self: center;
+    font-weight: 100;
+    color: var(--cinzentoClaro);
+  }
+
+  @keyframes animacao-linha {
+    from {
+      transform: translateY(-150%);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes animacao-estado {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 150px) {
+  body {
+    background-image: none;
+  }
+}
