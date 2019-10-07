@@ -76,21 +76,22 @@ function getLinha(orig, dest) {
     case 'AV': // Avenida
     case 'RE': // Restauradores
     case 'TP': // Terreiro do Paco
+    case 'SP': // Santa Apolonia
       linha = 'Azul';
       break;
     case 'OD': // Odivelas
     case 'SR': // Senhor Roubado
     case 'AX': // Ameixoeira
     case 'LU': // Lumiar
-    case 'QV': // Quinta das Conchas
+    case 'QC': // Quinta das Conchas
     case 'CU': // Cidade Universitaria
     case 'EC': // Entre Campos
     case 'CP': // Campo Pequeno
     case 'PI': // Picoas
-    case 'RT': // Rato
+    case 'RA': // Rato
       linha = 'Amarela';
       break;
-    case 'TL': // Telheiras
+    case 'TE': // Telheiras
     case 'AL': // Alvalade
     case 'RM': // Roma
     case 'AE': // Areeiro
