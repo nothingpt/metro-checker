@@ -64,7 +64,6 @@ body {
   .cor_vermelha {
     width: 100%;
     height: 5px;
-    /* transform: translateY(-70%); */
     animation: animacao-linha 3s ease forwards;
   }
 
@@ -120,7 +119,8 @@ body {
     width: 95%;
     max-width: 95%;
     padding: .6em 1.4em .5em .8em;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
     background-color: var(--cinzentoEscuro);
     color: var(--cinzentoClaro);
     border: none;
@@ -153,7 +153,7 @@ body {
     width: 95%;
     justify-self: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: start;
     grid-gap: 5px;
   }
@@ -216,8 +216,23 @@ body {
   .upcoming-trains {
     font-weight: 300;
     padding-top: 5px;
-    justify-self: end;
-    color: var(--cinzentoClaro);
+    padding-left: 20px;
+  }
+
+  .upcoming-trains__Amarela {
+    color: var(--amarela);
+  }
+
+  .upcoming-trains__Azul {
+    color: var(--azul);
+  }
+
+  .upcoming-trains__Verde {
+    color: var(--verde);
+  }
+
+  .upcoming-trains__Vermelha {
+    color: var(--vermelha);
   }
 
   .station {
@@ -260,6 +275,18 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+
+  .upcoming_trains__container {
+    align-content: flex-start;
+  }
+
+  .upcoming-trains-title__Amarela,
+  .upcoming-trains-title__Azul,
+  .upcoming-trains-title__Verde,
+  .upcoming-trains-title__Vermelha {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 }
 
 @media (min-width: 720px) {
@@ -271,6 +298,10 @@ body {
 
   .content {
     grid-column: 2;
+  }
+
+  .upcoming_trains__container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
