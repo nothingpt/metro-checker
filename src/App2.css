@@ -95,6 +95,7 @@ body {
     grid-template-rows: auto 1fr auto;
     box-shadow: 2px 15px 30px 0 rgba(0, 0, 0, .5);
     grid-column: 1;
+    overflow: hidden;
   }
 
   .estado {
@@ -163,6 +164,7 @@ body {
   .upcoming-trains-title__Verde,
   .upcoming-trains-title__Vermelha {
     font-weight: 500;
+    animation: estacoes 2s ease forwards;
   }
 
   .upcoming-trains-title__Amarela {
@@ -217,6 +219,7 @@ body {
     font-weight: 300;
     padding-top: 5px;
     padding-left: 20px;
+    animation: comboios 3s ease forwards;
   }
 
   .upcoming-trains__Amarela {
@@ -258,6 +261,26 @@ body {
   }
 
   @keyframes animacao-estado {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes estacoes {
+    from {
+      transform: translateX(-150%);
+    }
+
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes comboios {
     from {
       opacity: 0;
     }
