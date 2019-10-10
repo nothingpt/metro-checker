@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Station = props => {
   const cssClasses = `upcoming-trains upcoming-trains__${props.trains.linha}`;
   return (
-    <div className="station" {...props}>
-      <div className={"upcoming-trains-title__" + props.trains.linha}>{props.trains.destino}</div>
+    <div className='station' {...props}>
+      <div className={'upcoming-trains-title__' + props.trains.linha}>{props.trains.destino}</div>
       <div className={cssClasses}>
         <ul>
           <li key={props.trains.tempoChegada1}>{props.trains.tempoChegada1}</li>
