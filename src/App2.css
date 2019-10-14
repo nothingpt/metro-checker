@@ -250,6 +250,10 @@ body {
     color: var(--cinzentoClaro);
   }
 
+  .last-update {
+    color: #727272;
+  }
+
   @keyframes animacao-linha {
     from {
       transform: translateY(-150%);

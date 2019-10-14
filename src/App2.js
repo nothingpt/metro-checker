@@ -20,6 +20,7 @@ import dotenv from 'dotenv';
 
 function App2 (props) {
   var id = 0;
+  const [ actualizacao, updateActualizacao ] = useState('');
   const [amarela, updateAmarela] = useState('');
   const [azul, updateAzul] = useState('');
   const [verde, updateVerde] = useState('');
@@ -91,6 +92,7 @@ function App2 (props) {
       const mn = entry.hora.substr(10, 2);
       const s = entry.hora.substr(12, 2);
       let hora = `${a}-${m}-${d}T${h}:${mn}:${s}`;
+      updateActualizacao(moment(hora).format('HH:mm:ss, DD-MM-YYYY'));
 
       if (
         !entry.tempoChegada1 ||
@@ -165,6 +167,9 @@ function App2 (props) {
               </option>
             ))}
           </select>
+          <div className='last-update'>
+            última actualização por parte do Metro Lisboa. { actualizacao }
+          </div>
         </div>
         <div className='upcoming_trains__container'>
           {isLoading ? (
